@@ -163,3 +163,13 @@ def opr():
     elif m==9 and d==1:
         hol="День рождения Саши (2 сентября)"
     oprc.create_text(500,200,text="Ближайший праздник: "+hol,fill="yellow",font="Arial 25 bold")
+def val():
+    valute=Tk()
+    valute.title("Курс валют")
+    valc=Canvas(valute,height=500,width=500)
+    valc.pack()
+    for line in ElementTree.parse(urllib.request.urlopen("http://www.cbr.ru/scripts/XML_daily.asp")).findall("Valute"):
+        if line.get("ID")=="R01235":
+            dollar=valc.create_text(50,20,text=float(line.find("Value").text.replace(",",".")))
+        if line.get("ID")=="R01239":
+            euro=valc.create_text(50,40,text=float(line.find("Value").text.replace(",",".")))
