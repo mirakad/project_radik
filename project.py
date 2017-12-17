@@ -97,7 +97,7 @@ def date():
         dc.pack()
         while True:
             now=time.strftime("%m:%d:%Y\n  %H:%M:%S")
-            d=dc.create_text(150,100,text=now,fill="black",font="Arial 25 bold")
+            d=dc.create_text(150,100,text=now,fill="red",font="Arial 25 bold")
             tkdate.update()
             dc.delete(d)
     except:
@@ -140,28 +140,26 @@ def opr():
     d=int(time.strftime("%d"))
     opr=Tk()
     opr.title("Ближайшие праздники")
-    oprc=Canvas(opr,height=300,width=300)
+    oprc=Canvas(opr,height=400,width=1000,bg="#007faa")
     oprc.pack()
     if m==9 and d>=2 or 10<=m<=12:
         hol="Новый Год"
     elif m==1 and 1<=d<=6:
-        hol="Рождество"
+        hol="Рождество (7 января)"
     elif m==1 and 7<=d<=10:
-        hol="Helow19274's Birthday"
+        hol="День рождения Игоря (11 января)"
     elif m==1 and 11<=d<=26:
-        hol="Др Макса"
+        hol="День рождения Макса (27 января)"
     elif m==1 and d>=27 or m==2 and 1<=d<=13:
-       hol="День святого Валентина"
+       hol="День святого Валентина (14 февраля)"
     elif m==2 and 14<=d<=22:
-        hol="23 февраля"
+        hol="День защитника Oтечества (23 февраля)"
     elif m==2 and d>=23 or m==3 and 1<=d<=7:
-        hol="8 марта"
+        hol="Международный женский день (8 марта) "
     elif m==3 and d>=8 or m==4 or m==5 and 1<=d<=8:
-        hol="9 мая"
+        hol="День победы (9 мая)"
     elif m==5 and d>=9 or 6<=m<=8:
-        hol="1 сентября ЧЁРНЫМ"
+        hol="траурный день (1 сентября)"
     elif m==9 and d==1:
-        hol="Др Саши"
-    else:
-        hol="хз"
-    oprc.create_text(150,150,text=hol)
+        hol="День рождения Саши (2 сентября)"
+    oprc.create_text(500,200,text="Ближайший праздник: "+hol,fill="yellow",font="Arial 25 bold")
