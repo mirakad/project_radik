@@ -175,4 +175,3 @@ def val():
             dollar=valc.create_text(50,20,text=float(line.find("Value").text.replace(",",".")))
         if line.get("ID")=="R01239":
             euro=valc.create_text(50,40,text=float(line.find("Value").text.replace(",",".")))
-val()
